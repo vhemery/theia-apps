@@ -21,7 +21,7 @@ win:
 mac:
   target:
     - dmg
-  darkModeSupport: true
+  darkModeSupport: false
 linux:
   target:
     - deb
