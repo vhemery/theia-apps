@@ -23,4 +23,5 @@ RUN npm install -g yarn
 # AppVeyor to build windows on linux
 RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o appveyor-server_7.0.2546_amd64.deb \
     && sudo dpkg -i appveyor-server_7.0.2546_amd64.deb
+# To build app in 32 bit from a machine with 64 bit
 RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
