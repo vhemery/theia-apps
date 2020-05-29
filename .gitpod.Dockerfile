@@ -15,6 +15,7 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh
 RUN export NVM_DIR="$HOME/.nvm"
 RUN [ -s "$NVM_DIR/nvm.sh" ]
 RUN \. "$NVM_DIR/nvm.sh"  # This loads nvm
-RUN [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+RUN [ -s "$NVM_DIR/bash_completion" ]
+RUN \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 RUN nvm install 10
 RUN nvm use 10
