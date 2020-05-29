@@ -19,3 +19,4 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | b
     && nvm install 10 \
     && nvm alias default 10 \
     && nvm use default
+RUN npm install -g yarn
