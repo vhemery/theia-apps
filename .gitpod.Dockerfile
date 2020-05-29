@@ -11,11 +11,11 @@ USER gitpod
 # More information: https://www.gitpod.io/docs/config-docker/
 RUN sudo apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
 RUN sudo apt-get install lsof
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
-RUN export NVM_DIR="$HOME/.nvm"
-RUN [ -s "$NVM_DIR/nvm.sh" ]
-RUN \. "$NVM_DIR/nvm.sh"  # This loads nvm
-RUN [ -s "$NVM_DIR/bash_completion" ]
-RUN \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-RUN nvm install 10
-RUN nvm use 10
+# This loads nvm and bash_completion
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash \
+    && export NVM_DIR="$HOME/.nvm" \
+    && . $NVM_DIR/nvm.sh \
+    && . $NVM_DIR/bash_completion \
+    && nvm install 10 \
+    && nvm alias default 10 \
+    && nvm use default
