@@ -26,5 +26,4 @@ RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o a
 # To build app in 32 bit from a machine with 64 bit
 RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 # Install Wine and mono to build for windows
-RUN sudo apt install wine64
-RUN sudo apt install mono-complete
+RUN sudo apt install -y wine64 mono-complete
