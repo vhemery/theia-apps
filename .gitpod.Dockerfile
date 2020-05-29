@@ -1,4 +1,5 @@
-FROM theiaide/theia-full
+FROM gitpod/workspace-full
+#theiaide/theia-full
 
 USER gitpod
 
