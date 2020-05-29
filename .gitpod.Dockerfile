@@ -11,6 +11,7 @@ USER gitpod
 # More information: https://www.gitpod.io/docs/config-docker/
 RUN sudo apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
 RUN sudo apt-get install lsof
+RUN sudo apt-get install libnss3-dev
 # This loads nvm and bash_completion
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
