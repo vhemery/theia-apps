@@ -1,8 +1,9 @@
 electronDist: node_modules/electron/dist
 productName: Theia
 appId: theia
+npmRebuild: false
 
-asar: false
+asar: true
 directories:
   buildResources: resources
 files:
