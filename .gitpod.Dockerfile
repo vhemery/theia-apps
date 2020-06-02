@@ -29,5 +29,5 @@ RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 RUN sudo apt install -y wine64 mono-complete
 RUN sudo dpkg --add-architecture i386 \
     && sudo apt-get update -y \
-    && sudo apt-get dist-upgrade -o APT::Immediate-Configure=0 \
+    && sudo apt-get dist-upgrade -oy APT::Immediate-Configure=0 \
     && sudo apt-get install -y libc6 libc6-i686 wine32
