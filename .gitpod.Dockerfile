@@ -27,3 +27,4 @@ RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o a
 RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 # Install Wine and mono to build for windows
 RUN sudo apt install -y wine64 mono-complete
+RUN sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install -y wine32
