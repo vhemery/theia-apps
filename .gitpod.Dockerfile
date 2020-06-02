@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full
-#copied from gitpod/workspace-full
-# copied from theiaide/theia-electron-builder
+# base from gitpod/workspace-full
+# inspired from theiaide/theia-electron-builder
 USER root
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,7 +13,8 @@ RUN apt-get -qq update && apt-get -qq dist-upgrade && \
     # python for node-gyp
     # rpm is required for FPM to build rpm package
     # libsecret-1-dev and libgnome-keyring-dev are required even for prebuild keytar
-    apt-get -qq install --no-install-recommends qtbase5-dev bsdtar build-essential autoconf libssl-dev gcc-multilib g++-multilib lzip rpm python libcurl4 git git-lfs ssh unzip \
+    # removed bsdtar https://github.com/intel/lkp-tests/issues/50
+    apt-get -qq install --no-install-recommends qtbase5-dev build-essential autoconf libssl-dev gcc-multilib g++-multilib lzip rpm python libcurl4 git git-lfs ssh unzip \
     libsecret-1-dev libgnome-keyring-dev \
     libopenjp2-tools && \
     # git-lfs
@@ -34,7 +35,7 @@ ENV LC_ALL C.UTF-8
 ENV DEBUG_COLORS true
 ENV FORCE_COLOR true
 
-#theiaide/theia-full
+# Proper custom content
 
 USER gitpod
 
@@ -59,7 +60,7 @@ RUN npm install -g yarn
 RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o appveyor-server_7.0.2546_amd64.deb \
     && sudo dpkg -i appveyor-server_7.0.2546_amd64.deb
 # To build app in 32 bit from a machine with 64 bit
-RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
+# RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 # Install Wine and mono to build for windows
 RUN sudo apt install -y wine64 mono-complete
 RUN sudo dpkg --add-architecture i386 \
