@@ -30,18 +30,4 @@ RUN sudo apt install -y wine64 mono-complete
 RUN sudo dpkg --add-architecture i386 \
     && sudo apt-get update -y \
     && sudo apt-get dist-upgrade -y -o APT::Immediate-Configure=0 \
-    && sudo apt-get install -y libc6 libc6-i686 wine32
-# From Wine dockerfile : https://github.com/electron-userland/electron-builder/blob/master/docker/wine/Dockerfile
-RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends software-properties-common && sudo dpkg --add-architecture i386 && \
-    curl -L https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key > winehq.key && apt-key add winehq.key && \
-    sudo apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./' && \
-    sudo apt-get update && \
-    sudo apt-get -y purge software-properties-common libdbus-glib-1-2 python3-dbus python3-gi python3-pycurl python3-software-properties && \
-    sudo apt-get install -y --no-install-recommends winehq-stable && \
-    # clean
-    sudo apt-get clean && rm -rf /var/lib/apt/lists/* && unlink winehq.key
-
-RUN curl -L https://github.com/electron-userland/electron-builder-binaries/releases/download/wine-2.0.3-mac-10.13/wine-home.zip > /tmp/wine-home.zip && unzip /tmp/wine-home.zip -d /root/.wine && unlink /tmp/wine-home.zip
-
-ENV WINEDEBUG -all,err+all
-ENV WINEDLLOVERRIDES winemenubuilder.exe=d
+    && sudo apt-get install -y cabextract libxext6 libxext6:i386 libfreetype6 libfreetype6:i386 libc6 libc6-i686 wine32
