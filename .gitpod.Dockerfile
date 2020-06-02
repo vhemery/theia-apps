@@ -40,18 +40,16 @@ ENV FORCE_COLOR true
 # Proper custom content
 
 # AppVeyor to build windows on linux
-RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o appveyor-server_7.0.2546_amd64.deb \
-    && dpkg -i appveyor-server_7.0.2546_amd64.deb
+#RUN curl -L https://www.appveyor.com/downloads/appveyor/appveyor-server.deb -o appveyor-server_7.0.2546_amd64.deb \
+#    && dpkg -i appveyor-server_7.0.2546_amd64.deb
 # To build app in 32 bit from a machine with 64 bit
 # RUN sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 # Install Wine and mono to build for windows
-RUN apt install -y wine64 mono-complete
-RUN dpkg --add-architecture i386 \
-    && sudo apt-get update -y \
-    && sudo apt-get dist-upgrade -y -o APT::Immediate-Configure=0 \
-    && sudo apt-get install -y cabextract libxext6 libxext6:i386 libfreetype6 libfreetype6:i386 libc6 libc6-i686 wine32
-
-
+#RUN apt install -y wine64 mono-complete
+#RUN dpkg --add-architecture i386 \
+#    && sudo apt-get update -y \
+#    && sudo apt-get dist-upgrade -y -o APT::Immediate-Configure=0 \
+#    && sudo apt-get install -y cabextract libxext6 libxext6:i386 libfreetype6 libfreetype6:i386 libc6 libc6-i686 wine32
 
 USER gitpod
 
