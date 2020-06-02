@@ -23,7 +23,7 @@ RUN apt-get -qq update && apt-get -qq dist-upgrade && \
     git lfs install && \
     apt-get purge -y --auto-remove && rm -rf /var/lib/apt/lists/*
 
-COPY test.sh /test.sh
+# COPY test.sh /test.sh
 
 WORKDIR /project
 
