@@ -1,6 +1,6 @@
 tasks:
   - before: npm install -g yarn
     init: cd theia-electron && yarn add electron-builder --deb
-    command: cd theia-electron && yarn && yarn electron-builder --win
+    command: yarn && yarn electron-builder --win
 image:
   file: .gitpod.Dockerfile
