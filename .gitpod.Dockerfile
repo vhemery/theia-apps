@@ -5,6 +5,9 @@ USER root
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# added here because fails afterward... 
+RUN apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
+RUN apt-get install -y lsof libnss3-dev
 # RUN curl -L https://yarnpkg.com/latest.tar.gz | tar xvz && mv yarn-* /yarn && ln -s /yarn/bin/yarn /usr/bin/yarn
 RUN apt-get -qq update && apt-get -qq dist-upgrade && \
     # add repo for git-lfs
@@ -61,8 +64,8 @@ WORKDIR ~
 # RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
 #
 # More information: https://www.gitpod.io/docs/config-docker/
-RUN sudo apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
-RUN sudo apt-get install -y lsof libnss3-dev
+#RUN sudo apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
+#RUN sudo apt-get install -y lsof libnss3-dev
 # This loads nvm and bash_completion
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash \
     && export NVM_DIR="$HOME/.nvm" \
