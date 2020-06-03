@@ -1,6 +1,6 @@
 FROM gitpod/workspace-full
 # base from gitpod/workspace-full
-# inspired from theiaide/theia-electron-builder
+# inspired from theiaide/theia-electron-builder or https://github.com/electron-userland/electron-builder/blob/master/docker/base/Dockerfile
 USER root
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -71,7 +71,7 @@ ENV WINEDLLOVERRIDES winemenubuilder.exe=d
 
 USER gitpod
 
-WORKDIR ~
+WORKDIR /project
 
 # Install custom tools, runtime, etc. using apt-get
 # For example, the command below would install "bastet" - a command line tetris clone:
