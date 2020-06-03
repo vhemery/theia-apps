@@ -42,8 +42,8 @@ ENV FORCE_COLOR true
 
 # inspired from https://github.com/electron-userland/electron-builder/blob/master/docker/wine/Dockerfile
 RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common && dpkg --add-architecture i386 && \
-    curl -L https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key > winehq.key && apt-key add winehq.key && \
-    apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./' && \
+    curl -L https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.04/Release.key > winehq.key && apt-key add winehq.key && \
+    apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_20.04/ ./' && \
     apt-get update && \
     apt-get -y purge software-properties-common libdbus-glib-1-2 python3-dbus python3-gi python3-pycurl python3-software-properties && \
     apt-get install -y --no-install-recommends winehq-stable && \
